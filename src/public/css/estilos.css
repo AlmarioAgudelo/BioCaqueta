@@ -1,0 +1,145 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f5ef;
+    color: #203b2b;
+    line-height: 1.5;
+}
+
+header {
+    padding: 24px;
+    background-color: #225b39;
+    color: white;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+main {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 16px;
+}
+
+section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: white;
+    border: 1px solid #d6e3da;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Formularios */
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b6c9bb;
+    border-radius: 4px;
+    background-color: white;
+    color: #203b2b;
+    font: inherit;
+}
+
+/* Botones y enlaces */
+.botones {
+    margin-top: 20px;
+}
+
+button,
+.boton {
+    display: inline-block;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #26734b;
+    color: white;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.boton:hover {
+    background-color: #1b5737;
+}
+
+.cancelar {
+    background-color: #53665b;
+}
+
+.cancelar:hover {
+    background-color: #3c4d43;
+}
+
+.eliminar {
+    background-color: #a83b39;
+}
+
+.eliminar:hover {
+    background-color: #842d2c;
+}
+
+/* Tabla de avistamientos */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #d6e3da;
+    text-align: left;
+}
+
+th {
+    background-color: #e3eee5;
+}
+
+.acciones {
+    white-space: nowrap;
+}
+
+.acciones form {
+    display: inline;
+}
+
+/* En celulares, los campos van uno debajo del otro */
+@media (max-width: 640px) {
+    .campos {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 16px;
+    }
+}

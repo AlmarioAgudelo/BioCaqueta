@@ -1,0 +1,95 @@
+<section>
+    <h2>Registrar nuevo avistamiento</h2>
+
+    <form action="/api/avistamientos" method="POST">
+        <div class="campos">
+            <div>
+                <label for="nombreComun">Nombre común</label>
+                <input type="text" id="nombreComun" name="nombreComun" placeholder="Ej. Danta amazónica" required>
+            </div>
+
+            <div>
+                <label for="nombreCientifico">Nombre científico</label>
+                <input type="text" id="nombreCientifico" name="nombreCientifico" placeholder="Ej. Tapirus terrestris" required>
+            </div>
+
+            <div>
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="Mamífero">Mamífero</option>
+                    <option value="Ave">Ave</option>
+                    <option value="Reptil">Reptil</option>
+                    <option value="Anfibio">Anfibio</option>
+                    <option value="Flora">Flora</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="zona">Zona</label>
+                <input type="text" id="zona" name="zona" placeholder="Ej. Río Hacha" required>
+            </div>
+
+            <div>
+                <label for="estadoConservacion">Estado de conservación</label>
+                <select id="estadoConservacion" name="estadoConservacion">
+                    <option value="Preocupación menor">Preocupación menor</option>
+                    <option value="Vulnerable">Vulnerable</option>
+                    <option value="En peligro">En peligro</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="investigador">Investigador</label>
+                <input type="text" id="investigador" name="investigador" placeholder="Nombre del investigador" required>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button type="submit">Guardar avistamiento</button>
+        </div>
+    </form>
+</section>
+
+<section>
+    <h2>Avistamientos registrados</h2>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre común</th>
+                    <th>Nombre científico</th>
+                    <th>Categoría</th>
+                    <th>Zona</th>
+                    <th>Estado</th>
+                    <th>Investigador</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each avistamientos}}
+                    <tr>
+                        <td>{{this.nombreComun}}</td>
+                        <td><em>{{this.nombreCientifico}}</em></td>
+                        <td>{{this.categoria}}</td>
+                        <td>{{this.zona}}</td>
+                        <td>{{this.estadoConservacion}}</td>
+                        <td>{{this.investigador}}</td>
+                        <td class="acciones">
+                            <a class="boton" href="/editar/{{this._id}}">Editar</a>
+
+                            <form action="/api/avistamientos/delete/{{this._id}}" method="POST">
+                                <button type="submit" class="eliminar">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{else}}
+                    <tr>
+                        <td colspan="7">Todavía no hay avistamientos registrados.</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+<section>
+    <h2>Editar avistamiento</h2>
+
+    <p><strong>{{avistamiento.nombreComun}}</strong> ({{avistamiento.nombreCientifico}})</p>
+    <p>Categoría: {{avistamiento.categoria}}</p>
+    <p>Investigador: {{avistamiento.investigador}}</p>
+
+    <form action="/api/avistamientos/update/{{avistamiento._id}}" method="POST">
+        <div class="campos">
+            <div>
+                <label for="zona">Zona</label>
+                <input type="text" id="zona" name="zona" value="{{avistamiento.zona}}" required>
+            </div>
+
+            <div>
+                <label for="estadoConservacion">Estado de conservación</label>
+                <select id="estadoConservacion" name="estadoConservacion">
+                    <option value="Preocupación menor" {{#if esPreocupacion}}selected{{/if}}>Preocupación menor</option>
+                    <option value="Vulnerable" {{#if esVulnerable}}selected{{/if}}>Vulnerable</option>
+                    <option value="En peligro" {{#if esPeligro}}selected{{/if}}>En peligro</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="botones">
+            <button type="submit">Guardar cambios</button>
+            <a class="boton cancelar" href="/">Cancelar</a>
+        </div>
+    </form>
+</section>
